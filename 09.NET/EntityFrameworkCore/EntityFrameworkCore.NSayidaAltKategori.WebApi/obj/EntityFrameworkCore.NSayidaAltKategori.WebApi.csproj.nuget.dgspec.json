@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\YMYP1\\09.NET\\EntityFrameworkCore\\EntityFrameworkCore.NSayidaAltKategori.WebApi\\EntityFrameworkCore.NSayidaAltKategori.WebApi.csproj": {}
+    "C:\\Users\\etuba\\YMYPHocanınBelgeler\\YMYP1\\09.NET\\EntityFrameworkCore\\EntityFrameworkCore.NSayidaAltKategori.WebApi\\EntityFrameworkCore.NSayidaAltKategori.WebApi.csproj": {}
   },
   "projects": {
-    "C:\\YMYP1\\09.NET\\EntityFrameworkCore\\EntityFrameworkCore.NSayidaAltKategori.WebApi\\EntityFrameworkCore.NSayidaAltKategori.WebApi.csproj": {
+    "C:\\Users\\etuba\\YMYPHocanınBelgeler\\YMYP1\\09.NET\\EntityFrameworkCore\\EntityFrameworkCore.NSayidaAltKategori.WebApi\\EntityFrameworkCore.NSayidaAltKategori.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\YMYP1\\09.NET\\EntityFrameworkCore\\EntityFrameworkCore.NSayidaAltKategori.WebApi\\EntityFrameworkCore.NSayidaAltKategori.WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\etuba\\YMYPHocanınBelgeler\\YMYP1\\09.NET\\EntityFrameworkCore\\EntityFrameworkCore.NSayidaAltKategori.WebApi\\EntityFrameworkCore.NSayidaAltKategori.WebApi.csproj",
         "projectName": "EntityFrameworkCore.NSayidaAltKategori.WebApi",
-        "projectPath": "C:\\YMYP1\\09.NET\\EntityFrameworkCore\\EntityFrameworkCore.NSayidaAltKategori.WebApi\\EntityFrameworkCore.NSayidaAltKategori.WebApi.csproj",
-        "packagesPath": "C:\\Users\\taner\\.nuget\\packages\\",
-        "outputPath": "C:\\YMYP1\\09.NET\\EntityFrameworkCore\\EntityFrameworkCore.NSayidaAltKategori.WebApi\\obj\\",
+        "projectPath": "C:\\Users\\etuba\\YMYPHocanınBelgeler\\YMYP1\\09.NET\\EntityFrameworkCore\\EntityFrameworkCore.NSayidaAltKategori.WebApi\\EntityFrameworkCore.NSayidaAltKategori.WebApi.csproj",
+        "packagesPath": "C:\\Users\\etuba\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\etuba\\YMYPHocanınBelgeler\\YMYP1\\09.NET\\EntityFrameworkCore\\EntityFrameworkCore.NSayidaAltKategori.WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\taner\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\etuba\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

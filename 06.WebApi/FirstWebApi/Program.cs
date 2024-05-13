@@ -21,7 +21,7 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 //Middleware
-if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction()/* || app.Environment.IsTuba()*/)
 {
     app.UseSwagger();
     app.UseSwaggerUI();

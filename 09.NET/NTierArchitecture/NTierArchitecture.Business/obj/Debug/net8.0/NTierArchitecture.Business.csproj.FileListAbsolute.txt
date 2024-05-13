@@ -16,3 +16,6 @@ C:\YMYP1\09.NET\NTierArchitecture\NTierArchitecture.Business\obj\Debug\net8.0\re
 C:\YMYP1\09.NET\NTierArchitecture\NTierArchitecture.Business\obj\Debug\net8.0\NTierArchitecture.Business.pdb
 C:\YMYP1\09.NET\NTierArchitecture\NTierArchitecture.Business\obj\Debug\net8.0\ref\NTierArchitecture.Business.dll
 C:\YMYP1\09.NET\NTierArchitecture\NTierArchitecture.Business\obj\Debug\net8.0\NTierArc.1080D041.Up2Date
+C:\Users\etuba\YMYPHocanınBelgeler\YMYP1\09.NET\NTierArchitecture\NTierArchitecture.Business\obj\Debug\net8.0\NTierArchitecture.Business.dll
+C:\Users\etuba\YMYPHocanınBelgeler\YMYP1\09.NET\NTierArchitecture\NTierArchitecture.Business\obj\Debug\net8.0\refint\NTierArchitecture.Business.dll
+C:\Users\etuba\YMYPHocanınBelgeler\YMYP1\09.NET\NTierArchitecture\NTierArchitecture.Business\obj\Debug\net8.0\NTierArchitecture.Business.pdb
