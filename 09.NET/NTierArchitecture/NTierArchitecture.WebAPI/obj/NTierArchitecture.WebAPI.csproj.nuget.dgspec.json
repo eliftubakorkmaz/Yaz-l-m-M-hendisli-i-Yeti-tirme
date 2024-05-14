@@ -57,6 +57,10 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+            "EntityFrameworkCore.Pagination": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "FluentValidation": {
               "target": "Package",
               "version": "[11.9.0, )"
@@ -300,6 +304,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.2, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

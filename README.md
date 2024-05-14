@@ -1,6 +1,217 @@
 # YMYP 1.Eğitim
 ### Kendime Not: Mention Kütüphanesini Sosyal Meyda Projesinde Deneyeceğiz. 
 
+## 14.05.2024 (Gelecek ders)
+-- Ödev: Tüm exceptionlar Result pattern ile dönsün
+-- User GetAll
+-- Product Create
+-- Product GetAll
+-- Order Create 
+-- Order GetAll
+-- Authentication yapısı
+-- Login işlemi
+
+## 12.05.2024
+-- Domain Event
+-- Service
+-- Aplication Katmanı
+-- Infrastructure Katmanı
+-- WebAPI Katmanı
+-- Projemizi çalıştırıp test edelim
+
+## 09.05.2024
+-- Aggragate
+-- Factory
+
+## 07.05.2024
+- Domain-Driven Desig devam
+-- **Tactical Pattern**
+--- Entity
+--- Value Object
+--- Repository
+
+## 05.05.2024
+- Unit Test
+- Domain-Driven Design
+-- **Tactical Pattern**
+--- Entity
+
+## 02.05.2024
+- Unit Test
+
+## 01.05.2024
+- Unit Test
+
+## 30.04.2024
+- Unit Test
+
+## 28.04.2024
+- Unit Test
+
+## 25.04.2024
+- SignalR bireysel sohbet
+
+## 23.04.2024
+- Döviz Takip uygulaması frontend
+- SignalR ile Chart.js kullanımı
+
+## 21.04.2024
+- Döviz Takip uygulaması için backend
+- Clean Architecture template düzeltmeleri
+
+## 18.04.2024
+- SignalR Devam (Group chat)
+- Chart.js
+- Chart.js ile canlı veri gösterme denemesi
+
+## 16.04.2024
+- SignalR Devam
+
+## 14.04.2024
+- AWS SQS
+- SignalR Başladık
+
+## 09.04.2024
+- Newsletter Projesine Devam Ediyoruz
+- Background Services
+
+## 07.04.2024
+- Newsletter Projesine Devam Ediyoruz
+
+## 04.04.2024 
+- Newsletter Projesine Devam Ediyoruz
+
+## 02.04.2024
+- RabbitMQ ile Örnek Proje
+- Newsletter Projesine Başladık
+
+## 31.03.2024
+- RabbitMQ
+
+## 28.03.2024
+- Loglamaya Devam
+- SeriLog - Manuel Loglama - Error Loglama
+
+## 26.03.2024
+- Ödev
+    * Grup Lideri seçin
+    * Grup lideri bir repo oluştursun ve herkese özgü branch eklesin
+    * Grup lideri repoyu arkadaşlarıyla paylaşsın
+    * Herkesn kendi üzerine düşen kodlama görevini yapıp pushlasın
+    * Grup lideri pushlamaları kontrol edip ana repoya alsın ve test etsin
+    * Görev: Clean Architecture ve CQRS ile Login işlemi
+    * Fake bir register işlemini IoC container de otomatik yaptırın
+    * Derste de GitHub reposu ve programın çalışıp çalışmadığı kontrol edilecek
+    
+- SmartEnum
+- Log (Serilog ve Manuel)
+
+## 21.03.2024
+- Çağla ile Gaye'nin Reposunda Ortak Task Çözüm Devamı
+
+## 19.03.2024
+- Behavior (MediatR)
+- Cache (Memory ve Redis)
+
+## 17.03.2024
+- Enes Task Çözümü Denemesi
+- Mehmet Can Ünaldu Task Çözümü Denemesi
+- Mülakat Soruları Cevapları
+
+## 14.03.2024
+- eHospital projesinde kaldığımız yerden devam ediyoruz
+- Appointment Delete
+- Authentication
+- Doktorun Randevularını Gördüğü Sayfa
+- Gaye Task Çözümü Denemesi
+
+## 12.03.2024
+- eHospital projesinde kaldığımız yerden devam ediyoruz
+- Frontend Tarafında Appointment Kaydı
+
+## 10.03.2024
+- Clean Architecture
+- Identity Kütüphanesi Endpoints
+- FluentValidation
+- smtp4dev
+- FluentEmail
+
+## 07.03.2024
+- Clean Architecture
+- CQRS
+- MediatR
+
+## 05.03.2024
+- Randevu Tamamlama
+- Fluent Validation
+- Frontend Projesi Oluşturma
+
+## 03.03.2024
+- Şifremi Unuttum
+- Randevu Oluşturma
+
+## 01.03.2024
+- Mail Onaylama işlemi
+- Ödev: Şifremi Unuttum Maili Gönderme
+
+## 28.02.2024
+- WebAPI ve Angular Projesini Canlıya Alma
+- User Create
+- Business Rules
+
+## 27.02.2024
+- JWT
+- Ödev - Keycloak
+- Authentication
+- Refresh Token
+- Options Pattern
+
+## 25.02.2024
+- eHospital projemize devam ediyoruz
+- Docker kurduk
+- PostgreSQL'i docker image ile ayağa kaldırdık
+- Codefirst ile database oluşturduk
+- Admin kullanıcısını otomatik oluşturacak kod yazdık
+- Login metodumuzu yazdık
+- Result Pattern için bir NuGet package yazıp yayımladık
+- Ödev (JWT ve Refresh token yapılarını kurun)
+
+## 23.02.2024
+- İzin Talep Uygulaması Taskını Tamamladık
+
+## 22.02.2024
+- İzin Talep Uygulaması Taskı
+
+## 21.02.2024
+- İzin Talep Uygulaması Taskı
+
+## 20.02.2024
+- eHospital projesine başladık
+- Porejimizin Analiz Sürecine başladık
+- Analiz sürecinden çıkan User tablo bilgisi .NET uygulamamızda oluşturduk
+- Database olarak PostgreSQL seçtik ve EFCore kütüphaneleri ona göre kurduk
+- Identity Kütüphanesini kullandık
+- Ödev (Docker üzerinden PostgreSQL'i ayağa kaldırıp Code First ile database'i oluşturun)
+
+## 16.02.2024
+- Okul uygulamasına devam ediyoruz
+- Ödev Çözümü
+- Çok sayıda veriyi Frontend tarafında işlemeye ait çözümler
+- ngx-pagination
+- Data Tables
+- Devextreme Data Grid
+- Backend Pagination
+- Frontend'de Backend Paginationu İşleme
+- Yeni Ödev
+
+## 15.02.2024
+- Okul uygulamasına devam ediyoruz
+- Ödev çözümü
+- Öğrenci Kayıt
+- Validation Kontrolü
+- Sweet Alert kütüphanesi
+- Yeni Ödev
+
 ## 14.02.2024
 - Okul Uygulamasına devam ediyoruz
 - Ödev çözümü
@@ -8,7 +219,7 @@
 - Functional Guard
 - Ana Sayfa tarasımı değişikliği ve tabs kullanımı
 - Sınıf ve öğrenci listesinin ana sayfada gösterimi
-- Ödev
+- Yeni Ödev
 
 ## 13.02.2024
 - Okul Uygulamasına devam ediyoruz

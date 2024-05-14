@@ -9,7 +9,7 @@ import * as signalR from '@microsoft/signalr';
   standalone: true,
   imports: [RouterOutlet, FormsModule],
   template: `
-  < <h1>SignalR Application</h1>
+  <h1>SignalR Application</h1>
   @if(!showChat){
   <div>
     <select [(ngModel)]="groupName">
@@ -53,68 +53,69 @@ import * as signalR from '@microsoft/signalr';
   `
 })
 export class AppComponent {
-  chats:{name:string,message:string}[] = [];
-  message:string= "";
-  name:string= "";
-  users:string[]= [];
-  showChat:boolean = false;
-  groupName: string = "";
+  chats: { name: string, message: string }[] = [];
+  message: string = "";
+  name: string = "";
+  users:string[] = [];
+  showChat: boolean = false;
+  groupName:string = "";
 
-  hub:signalR.HubConnection | undefined;
+  hub: signalR.HubConnection | undefined;
 
-  constructor(private http: HttpClient){
+  constructor(private http: HttpClient) {}
+
+  send() {
+    if(this.groupName){
+      this.http
+      .get(`https://localhost:7047/api/Values/SendGroup?groupName=${this.groupName}&name=${this.name}&message=${this.message}`)
+      .subscribe(() => this.message = "");
+    }else{
+      this.http
+      .get(`https://localhost:7047/api/Values/Send?name=${this.name}&message=${this.message}`)
+      .subscribe(() => this.message = "");
+    }
     
   }
 
-  send(){
-    if(this.groupName){
-      this.http.get(`https://localhost:7026/api/Values/SendGroup?groupName=${this.groupName}&name=${this.name}&message=${this.message}`).subscribe(() =>
-      this.message = "");
-    } else {
-      this.http.get(`https://localhost:7026/api/Values?name=${this.name}&message=${this.message}`).subscribe(() =>
-      this.message = "");
-    }
-
-  }
-
-  startConnection(){
+  startConnection() {
     this.hub = new signalR.HubConnectionBuilder()
-                .withUrl("https://localhost:7026/chat-hub")
-                .build();
+      .withUrl("https://localhost:7047/chat-hub")
+      .build();
 
-    this.hub.start().then(() => {
-      this.showChat = true;
-      console.log("Connection started");
+    this.hub
+      .start()
+      .then(() => {
+        this.showChat = true;
+        console.log("Connection started");
 
-      if(this.groupName === ""){
-        this.hub?.invoke("Join", this.name)
+        if(this.groupName === ""){
+          this.hub?.invoke("Join", this.name);
 
-        this.hub?.on("users", (res:string[]) => {
-          this.users = res
-        });
+          this.hub?.on("users", (res:any[])=> {
+            this.users = res
+          });
+  
+          this.hub?.on("receive", (res: any) => {          
+            this.chats.push(res);
+          });
+        }else{
+          this.hub?.invoke("JoinGroup", this.groupName, this.name);
+
+          this.hub?.on("receiveGroup",(res:any)=> {
+            this.chats.push(res);
+          });
+
+          this.hub?.on("groupUsers", (res:any[])=> {
+            this.users = res;
+          });
+        }
         
-        this.hub?.on("receive", (res:any) => {
-          this.chats.push(res);
-        });
-      }else{
-        this.hub?.invoke("JoinGroup", this.groupName, this.name);
-
-        this.hub?.on("receiveGroup",(res:any) => {
-          this.chats.push(res);
-        });
-
-        this.hub?.on("groupUsers", (res:any) => {
-          this.users = res;
-        });
-      }
-
-    })
-    .catch((err:any) => console.log(err));
+      })
+      .catch((err: any) => console.log(err));
   }
 
   leave(){
-    this.hub?.invoke("LeaveGroup", this.groupName);
-
+    this.hub?.invoke("LeaveGroup", this.groupName);    
     this.showChat = false;
   }
 }

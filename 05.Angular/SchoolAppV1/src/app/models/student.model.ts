@@ -5,4 +5,6 @@ export class StudentModel{
     fullName: string  ="";
     identityNumber: string = "";
     studentNumber:number = 0;
+    classRoomId: string = "0";
+    index: number = 0;
 }
