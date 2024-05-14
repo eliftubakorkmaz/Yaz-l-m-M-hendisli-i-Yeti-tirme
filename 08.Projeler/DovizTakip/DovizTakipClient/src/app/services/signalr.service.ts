@@ -5,12 +5,11 @@ import * as signalR from '@microsoft/signalr';
   providedIn: 'root'
 })
 export class SignalrService {
-
   hub: signalR.HubConnection | undefined;
-  
+
   constructor() { }
 
-  startConnection(callBack: ()=> void) {
+  startConnection(callBack: () => void) {
     this.hub = new signalR.HubConnectionBuilder()
       .withUrl("https://localhost:7054/takip-hub")
       .build();
@@ -18,7 +17,7 @@ export class SignalrService {
     this.hub
       .start()
       .then(() => {
-        console.log("Connection started");  
+        console.log("Connection started");   
         
         callBack();
       })

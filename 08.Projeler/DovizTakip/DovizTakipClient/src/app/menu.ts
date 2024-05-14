@@ -9,31 +9,16 @@ export class MenuModel{
 export const Menus: MenuModel[] = [
     {
         name: "Ana Sayfa",
-        icon: "far fa fa-home",
+        icon: "fa-solid fa-home",
         url: "/",
         isTitle: false,
         subMenus: []
     },
     {
-        name: "Ana Sayfa",
-        icon: "far fa fa-home",
-        url: "/",
-        isTitle: true,
-        subMenus: []
-    },
-    {
-        name: "Ürünler",
-        icon: "far fa fa-box",
-        url: "/producs",
+        name: "Examples",
+        icon: "fa-solid fa-explosion",
+        url: "/examples",
         isTitle: false,
-        subMenus: [
-            {
-                name: "Ana Sayfa",
-                icon: "far fa fa-home",
-                url: "/",
-                isTitle: false,
-                subMenus: []
-            }
-        ]
+        subMenus: []
     }
 ]
