@@ -67,11 +67,11 @@ export class AppComponent {
   send() {
     if(this.groupName){
       this.http
-      .get(`https://localhost:7047/api/Values/SendGroup?groupName=${this.groupName}&name=${this.name}&message=${this.message}`)
+      .get(`https://localhost:7026/api/Values/SendGroup?groupName=${this.groupName}&name=${this.name}&message=${this.message}`)
       .subscribe(() => this.message = "");
     }else{
       this.http
-      .get(`https://localhost:7047/api/Values/Send?name=${this.name}&message=${this.message}`)
+      .get(`https://localhost:7026/api/Values/Send?name=${this.name}&message=${this.message}`)
       .subscribe(() => this.message = "");
     }
     
@@ -79,7 +79,7 @@ export class AppComponent {
 
   startConnection() {
     this.hub = new signalR.HubConnectionBuilder()
-      .withUrl("https://localhost:7047/chat-hub")
+      .withUrl("https://localhost:7026/chat-hub")
       .build();
 
     this.hub
@@ -117,5 +117,7 @@ export class AppComponent {
   leave(){
     this.hub?.invoke("LeaveGroup", this.groupName);    
     this.showChat = false;
+    this.chats = [];
+    this.users = [];
   }
 }
