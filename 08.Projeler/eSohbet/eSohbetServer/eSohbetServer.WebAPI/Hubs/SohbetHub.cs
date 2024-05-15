@@ -14,7 +14,6 @@ public sealed class SohbetHub : Hub
         await Task.CompletedTask;
     }
 
-
     public override async Task OnDisconnectedAsync(Exception? exception)
     {
         Users.Remove(Context.ConnectionId);
