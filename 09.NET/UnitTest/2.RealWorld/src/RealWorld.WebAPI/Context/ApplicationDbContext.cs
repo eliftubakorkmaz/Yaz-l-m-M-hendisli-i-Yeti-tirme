@@ -10,5 +10,6 @@ public sealed class ApplicationDbContext : DbContext
 
     }
 
+
     public DbSet<User> Users { get; set; }
 }
