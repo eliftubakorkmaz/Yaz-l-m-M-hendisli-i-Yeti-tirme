@@ -2,7 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\09.NET",
-    "\\09.NET\\NTierArchitecture"
+    "\\09.NET\\NTierArchitecture",
+    "\\09.NET\\UnitTest",
+    "\\09.NET\\UnitTest\\2.RealWorld",
+    "\\09.NET\\UnitTest\\2.RealWorld\\src",
+    "\\09.NET\\UnitTest\\2.RealWorld\\src\\RealWorld.WebAPI",
+    "\\09.NET\\UnitTest\\2.RealWorld\\src\\RealWorld.WebAPI\\Context"
   ],
+  "SelectedNode": "\\09.NET\\UnitTest\\2.RealWorld\\src\\RealWorld.WebAPI\\Context\\ApplicationDbContext.cs",
   "PreviewInSolutionExplorer": false
 }
