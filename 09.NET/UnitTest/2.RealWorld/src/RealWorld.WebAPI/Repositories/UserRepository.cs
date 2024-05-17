@@ -4,8 +4,7 @@ using RealWorld.WebAPI.Models;
 
 namespace RealWorld.WebAPI.Repositories;
 
-public sealed class UserRepository(
-    ApplicationDbContext context) : IUserRepository
+public sealed class UserRepository(ApplicationDbContext context) : IUserRepository
 {
     public async Task<bool> CreateAsync(User user, CancellationToken cancellationToken = default)
     {
@@ -33,7 +32,7 @@ public sealed class UserRepository(
 
     public async Task<bool> NameIsExists(string name, CancellationToken cancellationToken = default)
     {
-        return await context.Users.AnyAsync(p=> p.Name == name, cancellationToken);
+        return await context.Users.AnyAsync(p => p.Name == name, cancellationToken);
     }
 
     public async Task<bool> UpdateAsync(User user, CancellationToken cancellationToken = default)

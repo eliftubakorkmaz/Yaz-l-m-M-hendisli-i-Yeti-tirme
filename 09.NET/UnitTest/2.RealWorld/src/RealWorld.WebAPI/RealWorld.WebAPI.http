@@ -1,4 +1,4 @@
-@RealWorld.WebAPI_HostAddress = http://localhost:5218
+@RealWorld.WebAPI_HostAddress = http://localhost:5267
 
 GET {{RealWorld.WebAPI_HostAddress}}/weatherforecast/
 Accept: application/json

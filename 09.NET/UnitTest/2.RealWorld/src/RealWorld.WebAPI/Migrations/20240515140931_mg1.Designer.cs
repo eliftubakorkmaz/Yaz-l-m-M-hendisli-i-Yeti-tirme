@@ -12,7 +12,7 @@ using RealWorld.WebAPI.Context;
 namespace RealWorld.WebAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240430193507_mg-1")]
+    [Migration("20240515140931_mg1")]
     partial class mg1
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace RealWorld.WebAPI.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.4")
+                .HasAnnotation("ProductVersion", "8.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);

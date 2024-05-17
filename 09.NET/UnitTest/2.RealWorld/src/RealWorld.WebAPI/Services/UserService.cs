@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using Microsoft.Extensions.Logging;
 using RealWorld.WebAPI.Dtos;
 using RealWorld.WebAPI.Logging;
 using RealWorld.WebAPI.Models;
@@ -8,24 +9,32 @@ using System.Diagnostics;
 
 namespace RealWorld.WebAPI.Services;
 
-public sealed class UserService(
-    IUserRepository userRepository, ILoggerAdapter<UserService> logger) : IUserService
+public sealed class UserService : IUserService
 {
+    private readonly IUserRepository _userRepository;
+    private readonly ILoggerAdaptor<IUserService> _logger;
+
+    public UserService(IUserRepository userRepository, ILoggerAdaptor<IUserService> logger)
+    {
+        _userRepository = userRepository;
+        _logger = logger;
+    }
+
     public async Task<List<User>> GetAllAsync(CancellationToken cancellationToken = default)
     {
-        logger.LogInformation("Tüm userlar getiriliyor");
+        _logger.LogInformation("Tüm kullanıcılar getiriliyor.");
         try
         {
-            return await userRepository.GetAllAsync(cancellationToken);
+            return await _userRepository.GetAllAsync(cancellationToken);
         }
-        catch(Exception ex) 
+        catch (Exception ex)
         {
-            logger.LogError(ex, "User listesi geçerken bir hatayla karşılaştık");
+            _logger.LogError(ex, "Bir hata ile karşılaşıldı.");
             throw;
         }
         finally
         {
-            logger.LogInformation("Tüm user listesi çekildi");
+            _logger.LogInformation("Tüm kullanıcı listesi çekildi.");
         }
     }
 
@@ -35,10 +44,10 @@ public sealed class UserService(
         var result = validator.Validate(request);
         if (!result.IsValid)
         {
-            throw new ValidationException(string.Join(", ", result.Errors.Select(s=> s.ErrorMessage)));
+            throw new ValidationException(string.Join(", ", result.Errors.Select(s => s.ErrorMessage)));
         }
 
-        var nameIsExist = await userRepository.NameIsExists(request.Name, cancellationToken);
+        var nameIsExist = await _userRepository.NameIsExists(request.Name, cancellationToken);
         if (nameIsExist)
         {
             throw new ArgumentException("Bu isim daha önce kaydedilmiş");
@@ -46,21 +55,21 @@ public sealed class UserService(
 
         var user = CreateUserDtoToUserObject(request);
 
-        logger.LogInformation("Kullanıcı adı: {0} bu olan kullanıcı kaydı yapılmaya başlandı.", user.Name);
+        _logger.LogInformation("Kullanıcı adı: {0} bu olan kullanıcı kaydı yapılmaya başlandı.", user.Name);
         var stopWatch = Stopwatch.StartNew();
         try
         {
-            return await userRepository.CreateAsync(user, cancellationToken);
+            return await _userRepository.CreateAsync(user, cancellationToken);
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Kullanıcı kaydı esnasında bir hatayla karşılaştım");            
+            _logger.LogError(ex, "Kullanıcı kaydı esnasında bir hatayla karşılaştım");
             throw;
         }
         finally
         {
             stopWatch.Stop();
-            logger.LogInformation("User Id: {0} olan kullanıcı {1}ms de oluşturuldu",user.Id, stopWatch.ElapsedMilliseconds);
+            _logger.LogInformation("User Id: {0} olan kullanıcı {1}ms de oluşturuldu", user.Id, stopWatch.ElapsedMilliseconds);
         }
     }
 
@@ -76,74 +85,76 @@ public sealed class UserService(
 
     public async Task<bool> DeleteByIdAsync(int id, CancellationToken cancellationToken = default)
     {
-        User? user = await userRepository.GetByIdAsync(id, cancellationToken);
+        User? user = await _userRepository.GetByIdAsync(id, cancellationToken);
         if(user is null)
         {
             throw new ArgumentException("Kullanıcı bulunamadı");
         }
 
-        logger.LogInformation("{0} id numarasına sahip kullanıcı siliniyor...",id);
+        _logger.LogInformation("{0} id numarasına sahip kullanıcı siliniyor.", id);
         var stopWatch = Stopwatch.StartNew();
+
         try
         {
-            return await userRepository.DeleteAsync(user, cancellationToken);
+            return await _userRepository.DeleteAsync(user, cancellationToken);
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Kullanıcı kaydı silinirken bir hatayla karşılaştık");
+
+            _logger.LogError(ex, "Kullanıcı silinirken bir hatayla karşılaşıldı.");
             throw;
-        }
-        finally
+        } finally
         {
             stopWatch.Stop();
-            logger.LogInformation("Kullanıcı id'si {0} olan kullanıcı kaydı {1}ms de silindi", user.Id, stopWatch.ElapsedMilliseconds);
+            _logger.LogInformation("Kullanıcı id'si {0} olan kullanıcı kaydı {1}ms de silindi", user.Id, stopWatch.ElapsedMilliseconds);
         }
     }
 
     public async Task<bool> UpdateAsync(UpdateUserDto request, CancellationToken cancellationToken = default)
     {
-        User? user = await userRepository.GetByIdAsync(request.Id, cancellationToken);
+        User? user = await _userRepository.GetByIdAsync(request.Id, cancellationToken);
 
-        if(user is null)
+        if (user is null)
         {
-            throw new ArgumentException("Kullanıcı bulunamadı");
+            throw new ArgumentException("Kullanıcı bulunamadı.");
         }
 
         UpdateUserDtoValidator validator = new();
         var result = validator.Validate(request);
-        if(!result.IsValid)
+        if (!result.IsValid)
         {
-            throw new ValidationException(string.Join("\n", result.Errors.Select(s=> s.ErrorMessage)));
+            throw new ValidationException(string.Join("\n", result.Errors.Select(s => s.ErrorMessage)));
         }
 
         if(request.Name != user.Name)
         {
-            var nameIsExist = await userRepository.NameIsExists(request.Name, cancellationToken);
-            if(nameIsExist)
+            var nameIsExist = await _userRepository.NameIsExists(request.Name, cancellationToken);
+
+            if(nameIsExist) 
             {
-                throw new ArgumentException("Bu isim daha önce kaydedilmiş");
+                throw new ArgumentException("Bu isim dha önce kaydedilmiş.");
             }
         }
 
         CreateUpdateUserObject(ref user, request);
 
-        logger.LogInformation("{0} kullanıcın güncelleme işlemi yapılmaya başlandı", request.Name);
+        _logger.LogInformation("{0} kullanıcının güncelleme işlemi yapılmaya başlandı.", request.Name);
         var stopWatch = Stopwatch.StartNew();
         try
         {
-            return await userRepository.UpdateAsync(user, cancellationToken);
+            return await _userRepository.UpdateAsync(user, cancellationToken);
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Kullanıcı güncelleme esnasında bir hatayla karşılaştım");
+
+            _logger.LogError(ex, "Kullanıcı güncelleme esnasında bir hata ile karşılaştım.");
             throw;
-        }
-        finally
+
+        } finally
         {
             stopWatch.Stop();
-            logger.LogInformation("{0} Id'li kullanıcının güncelleme işlemi {1}ms de başarıyla tamamlandı", user.Id, stopWatch.ElapsedMilliseconds);
+            _logger.LogInformation("{0} id'li kullanıcının güncelleme işlemini {1}ms de tamamladım.", user.Id, stopWatch.ElapsedMilliseconds);
         }
-
     }
 
     public void CreateUpdateUserObject(ref User user, UpdateUserDto request)
